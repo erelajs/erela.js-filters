@@ -1,13 +1,17 @@
 {
   "name": "erela.js-filters",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A custom filter plugin for erela.js",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": "https://github.com/OpenianDevelopment/erela.js-filters",
   "author": "Openian Development",
   "license": "MIT",
   "private": false,
   "dependencies": {
     "erela.js": "^2.3.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
   }
 }

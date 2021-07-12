@@ -1,2 +1,2 @@
-import customFilter from "./plugin";
+import {customFilter} from "./plugin";
 export = customFilter;
