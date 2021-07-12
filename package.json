@@ -1,0 +1,13 @@
+{
+  "name": "erela.js-filters",
+  "version": "1.0.0",
+  "description": "A custom filter plugin for erela.js",
+  "main": "index.ts",
+  "repository": "https://github.com/OpenianDevelopment/erela.js-filters",
+  "author": "Openian Development",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "erela.js": "^2.3.3"
+  }
+}
