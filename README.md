@@ -50,6 +50,10 @@ https://github.com/OpenianDevelopment/erela.js-filters
 > Add nighcore filter to the player \
 > **Example:** player.soft = true;
 
+- ### Reset
+> Reset the filter
+> **Example:** player.reset();
+
 ## Example Usage
 
 ```javascript

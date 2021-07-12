@@ -13,6 +13,7 @@ class customFilter extends erela_js_1.Plugin {
                 this._bassboost = false;
                 this._pop = false;
                 this._soft = false;
+                this._treblebass = false;
                 //Private Filter Data
                 this._resetData = {
                     op: "filters",
@@ -97,6 +98,26 @@ class customFilter extends erela_js_1.Plugin {
                         { band: 13, gain: -0.25 },
                     ],
                 };
+                this._treblebassData = {
+                    op: "filters",
+                    guildId: this.guild,
+                    equalizer: [
+                        { band: 0, gain: 0.6 },
+                        { band: 1, gain: 0.67 },
+                        { band: 2, gain: 0.67 },
+                        { band: 3, gain: 0 },
+                        { band: 4, gain: -0.5 },
+                        { band: 5, gain: 0.15 },
+                        { band: 6, gain: -0.45 },
+                        { band: 7, gain: 0.23 },
+                        { band: 8, gain: 0.35 },
+                        { band: 9, gain: 0.45 },
+                        { band: 10, gain: 0.55 },
+                        { band: 11, gain: 0.6 },
+                        { band: 12, gain: 0.55 },
+                        { band: 13, gain: 0 },
+                    ],
+                };
             }
             //Setting the filter
             set nightcore(status) {
@@ -106,6 +127,7 @@ class customFilter extends erela_js_1.Plugin {
                     this._bassboost = false;
                     this._soft = false;
                     this._pop = false;
+                    this._treblebass = false;
                     this.node.send(this._nightcoreData);
                 }
                 else
@@ -118,6 +140,7 @@ class customFilter extends erela_js_1.Plugin {
                     this._nightcore = false;
                     this._soft = false;
                     this._pop = false;
+                    this._treblebass = false;
                     this.node.send(this._vaporwaveData);
                 }
                 else
@@ -130,6 +153,7 @@ class customFilter extends erela_js_1.Plugin {
                     this._vaporwave = false;
                     this._soft = false;
                     this._pop = false;
+                    this._treblebass = false;
                     this.node.send(this._bassboostData);
                 }
                 else
@@ -142,6 +166,7 @@ class customFilter extends erela_js_1.Plugin {
                     this._vaporwave = false;
                     this._bassboost = false;
                     this._soft = false;
+                    this._treblebass = false;
                     this.node.send(this._popData);
                 }
                 else
@@ -154,6 +179,20 @@ class customFilter extends erela_js_1.Plugin {
                     this._vaporwave = false;
                     this._bassboost = false;
                     this._pop = false;
+                    this._treblebass = false;
+                    this.node.send(this._soft);
+                }
+                else
+                    this._resetnode();
+            }
+            set treblebass(status) {
+                this._treblebass = status;
+                if (status) {
+                    this._nightcore = false;
+                    this._vaporwave = false;
+                    this._bassboost = false;
+                    this._pop = false;
+                    this._soft = false;
                     this.node.send(this._soft);
                 }
                 else
