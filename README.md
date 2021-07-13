@@ -35,20 +35,32 @@ https://github.com/OpenianDevelopment/erela.js-filters
 > **Example:** player.nightcore = true;
 > 
 - ### Vaporwave
-> Add nighcore filter to the player \
+> Add vaporwave filter to the player \
 > **Example:** player.vaporwave = true;
 > 
 - ### BassBoost
-> Add nighcore filter to the player \
+> Add Bass Boost filter to the player \
 > **Example:** player.bassboost = true;
 > 
 - ### Pop
-> Add nighcore filter to the player \
+> Add pop filter to the player \
 > **Example:** player.pop = true;
 > 
 - ### Soft
-> Add nighcore filter to the player \
+> Add soft filter to the player \
 > **Example:** player.soft = true;
+>
+- ### treblebass
+> Add treble bass filter to the player \
+> **Example:** player.treblebass = true;
+>
+- ### Eight Dimension
+> Add 8D filter to the player \
+> **Example:** player.EightD = true;
+> 
+- ### Karaoke
+> Add karaoke filter to the player \
+> **Example:** player.karaoke = true;
 
 - ### Reset
 > Reset the filter
