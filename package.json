@@ -1,6 +1,6 @@
 {
   "name": "erela.js-filters",
-  "version": "1.1.6",
+  "version": "1.2.1",
   "description": "A custom filter plugin for erela.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -3,7 +3,7 @@
 
 It is recommended to read the documentation to start, and the guides to use the plugin.
 
-- [Documentation](http://projects.solaris.codes/erelajs/docs/gettingstarted.html 'Erela.js Documentation')
+- [Documentation](https://solaris.codes/projects/erelajs/docs/gettingstarted.html 'Erela.js Documentation')
 
 - [Guides](http://projects.solaris.codes/erelajs/guides/introduction.html 'Erela.js Guides')
 
@@ -56,7 +56,7 @@ https://github.com/OpenianDevelopment/erela.js-filters
 >
 - ### Eight Dimension
 > Add 8D filter to the player \
-> **Example:** player.EightD = true;
+> **Example:** player.eightD = true;
 > 
 - ### Karaoke
 > Add karaoke filter to the player \

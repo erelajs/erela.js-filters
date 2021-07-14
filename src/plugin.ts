@@ -13,15 +13,15 @@ export class customFilter extends Plugin {
                     private _pop: boolean = false;
                     private _soft: boolean = false;
                     private _treblebass: boolean = false;
-                    private _EightD: boolean = false;
+                    private _eightD: boolean = false;
                     private _karaoke: boolean = false;
 
                     //Private Filter Data
-                    private _resetData = {
+                    private readonly _resetData = {
                         op: "filters",
                         guildId: this.guild,
                     };
-                    private _nightcoreData = {
+                    private readonly _nightcoreData = {
                         op: "filters",
                         guildId: this.guild,
                         timescale: {
@@ -30,7 +30,7 @@ export class customFilter extends Plugin {
                             rate: 1,
                         },
                     };
-                    private _vaporwaveData = {
+                    private readonly _vaporwaveData = {
                         op: "filters",
                         guildId: this.guild,
                         equalizer: [
@@ -40,7 +40,7 @@ export class customFilter extends Plugin {
                         timescale: {pitch: 0.5},
                         tremolo: {depth: 0.3, frequency: 14},
                     };
-                    private _bassboostData = {
+                    private readonly _bassboostData = {
                         op: "filters",
                         guildId: this.guild,
                         equalizer: [
@@ -60,7 +60,7 @@ export class customFilter extends Plugin {
                             {band: 13, gain: 0},
                         ],
                     };
-                    private _popData = {
+                    private readonly _popData = {
                         op: "filters",
                         guildId: this.guild,
                         equalizer: [
@@ -81,7 +81,7 @@ export class customFilter extends Plugin {
                         ],
                     };
 
-                    private _softData = {
+                    private readonly _softData = {
                         op: "filters",
                         guildId: this.guild,
                         lowPass: {
@@ -89,7 +89,7 @@ export class customFilter extends Plugin {
                         }
                     };
 
-                    private _treblebassData = {
+                    private readonly _treblebassData = {
                         op: "filters",
                         guildId: this.guild,
                         equalizer: [
@@ -110,16 +110,16 @@ export class customFilter extends Plugin {
                         ],
                     };
 
-                    private _EightDData = {
-                        op: "filter",
+                    private readonly _eightDData = {
+                        op: "filters",
                         guildId: this.guild,
                         rotation: {
                             rotationHz: 0.2
                         }
                     }
 
-                    private _karaokeData = {
-                        op: "filter",
+                    private readonly _karaokeData = {
+                        op: "filters",
                         guildId: this.guild,
                         karaoke: {
                             level: 1.0,
@@ -138,7 +138,7 @@ export class customFilter extends Plugin {
                             this._soft = false;
                             this._pop = false;
                             this._treblebass = false;
-                            this._8d = false;
+                            this._eightD = false;
                             this._karaoke = false;
                             this.node.send(this._nightcoreData);
                         } else this._resetnode();
@@ -152,7 +152,7 @@ export class customFilter extends Plugin {
                             this._soft = false;
                             this._pop = false;
                             this._treblebass = false;
-                            this._8d = false;
+                            this._eightD = false;
                             this._karaoke = false;
                             this.node.send(this._vaporwaveData);
                         } else this._resetnode();
@@ -166,7 +166,7 @@ export class customFilter extends Plugin {
                             this._soft = false;
                             this._pop = false;
                             this._treblebass = false;
-                            this._8d = false;
+                            this._eightD = false;
                             this._karaoke = false;
                             this.node.send(this._bassboostData);
                         } else this._resetnode();
@@ -180,7 +180,7 @@ export class customFilter extends Plugin {
                             this._bassboost = false;
                             this._soft = false;
                             this._treblebass = false;
-                            this._8d = false;
+                            this._eightD = false;
                             this._karaoke = false;
                             this.node.send(this._popData);
                         } else this._resetnode();
@@ -194,9 +194,9 @@ export class customFilter extends Plugin {
                             this._bassboost = false;
                             this._pop = false;
                             this._treblebass = false;
-                            this._8d = false;
+                            this._eightD = false;
                             this._karaoke = false;
-                            this.node.send(this._soft);
+                            this.node.send(this._softData);
                         } else this._resetnode();
                     }
 
@@ -208,14 +208,14 @@ export class customFilter extends Plugin {
                             this._bassboost = false;
                             this._pop = false;
                             this._soft = false;
-                            this._8d = false;
+                            this._eightD = false;
                             this._karaoke = false;
-                            this.node.send(this._soft);
+                            this.node.send(this._treblebassData);
                         } else this._resetnode();
                     }
 
-                    set EightD(status:boolean){
-                        this._8d = status;
+                    set eightD(status:boolean){
+                        this._eightD = status;
                         if(status){
                             this._nightcore = false;
                             this._vaporwave = false;
@@ -224,7 +224,7 @@ export class customFilter extends Plugin {
                             this._soft = false;
                             this._treblebass = false;
                             this._karaoke = false;
-                            this.node.send(this._8dData);
+                            this.node.send(this._eightDData);
                         } else this._resetnode();
                     }
 
@@ -237,9 +237,9 @@ export class customFilter extends Plugin {
                             this._pop = false;
                             this._soft = false;
                             this._treblebass = false;
-                            this._8d = false;
+                            this._EightD = false;
                             this.node.send(this._karaokeData)
-                        }
+                        }else this._resetnode();
                     }
 
                     //Get Filter Status
@@ -267,8 +267,8 @@ export class customFilter extends Plugin {
                         return this.treblebass;
                     }
 
-                    get EightD(){
-                        return this._8d;
+                    get eightD(){
+                        return this._eightD;
                     }
 
                     get karaoke(){
@@ -288,7 +288,7 @@ export class customFilter extends Plugin {
                         this._soft = false;
                         this._pop = false;
                         this._treblebass = false;
-                        this._8d = false;
+                        this._eightD = false;
                         this._karaoke = false;
                     }
                 }
