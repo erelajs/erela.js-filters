@@ -89,5 +89,5 @@ const manager = new Manager({
     <Player>.nightcore = false;
 ```
 
-##Support Server: [Join Here](https://menhera-chan.in/invite)<br>
+##Support Server: [Join Here](https://menhera-chan.in/support)<br>
 ##Developer: Rohan Kumar - [Github](https://github.com/rohank05)
