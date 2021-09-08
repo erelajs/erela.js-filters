@@ -15,12 +15,15 @@ export class customFilter extends Plugin {
                     private _treblebass: boolean = false;
                     private _eightD: boolean = false;
                     private _karaoke: boolean = false;
+                    private _vibrato: boolean = false;
+                    private _tremolo: boolean = false;
 
                     //Private Filter Data
                     private readonly _resetData = {
                         op: "filters",
                         guildId: this.guild,
                     };
+
                     private readonly _nightcoreData = {
                         op: "filters",
                         guildId: this.guild,
@@ -30,6 +33,7 @@ export class customFilter extends Plugin {
                             rate: 1,
                         },
                     };
+
                     private readonly _vaporwaveData = {
                         op: "filters",
                         guildId: this.guild,
@@ -40,6 +44,7 @@ export class customFilter extends Plugin {
                         timescale: {pitch: 0.5},
                         tremolo: {depth: 0.3, frequency: 14},
                     };
+
                     private readonly _bassboostData = {
                         op: "filters",
                         guildId: this.guild,
@@ -60,6 +65,7 @@ export class customFilter extends Plugin {
                             {band: 13, gain: 0},
                         ],
                     };
+
                     private readonly _popData = {
                         op: "filters",
                         guildId: this.guild,
@@ -129,6 +135,24 @@ export class customFilter extends Plugin {
                         },
                     }
 
+                    private readonly _vibratoData = {
+                        op: "filters",
+                        guildId: this.guild,
+                        vibrato: {
+                            frequency: 10,
+                            depth: 0.9
+                        }
+                    }
+
+                    private readonly _tremoloData = {
+                        op: "filters",
+                        guildId: this.guild,
+                        tremolo: {
+                            frequency: 10,
+                            depth: 0.5
+                        }
+                    }
+
                     //Setting the filter
                     set nightcore(status: boolean) {
                         this._nightcore = status;
@@ -140,6 +164,8 @@ export class customFilter extends Plugin {
                             this._treblebass = false;
                             this._eightD = false;
                             this._karaoke = false;
+                            this._vibrato = false;
+                            this._tremolo = false;
                             this.node.send(this._nightcoreData);
                         } else this._resetnode();
                     }
@@ -154,6 +180,8 @@ export class customFilter extends Plugin {
                             this._treblebass = false;
                             this._eightD = false;
                             this._karaoke = false;
+                            this._vibrato = false;
+                            this._tremolo = false;
                             this.node.send(this._vaporwaveData);
                         } else this._resetnode();
                     }
@@ -168,6 +196,8 @@ export class customFilter extends Plugin {
                             this._treblebass = false;
                             this._eightD = false;
                             this._karaoke = false;
+                            this._vibrato = false;
+                            this._tremolo = false;
                             this.node.send(this._bassboostData);
                         } else this._resetnode();
                     }
@@ -182,6 +212,8 @@ export class customFilter extends Plugin {
                             this._treblebass = false;
                             this._eightD = false;
                             this._karaoke = false;
+                            this._vibrato = false;
+                            this._tremolo = false;
                             this.node.send(this._popData);
                         } else this._resetnode();
                     }
@@ -196,6 +228,8 @@ export class customFilter extends Plugin {
                             this._treblebass = false;
                             this._eightD = false;
                             this._karaoke = false;
+                            this._vibrato = false;
+                            this._tremolo = false;
                             this.node.send(this._softData);
                         } else this._resetnode();
                     }
@@ -210,6 +244,8 @@ export class customFilter extends Plugin {
                             this._soft = false;
                             this._eightD = false;
                             this._karaoke = false;
+                            this._vibrato = false;
+                            this._tremolo = false;
                             this.node.send(this._treblebassData);
                         } else this._resetnode();
                     }
@@ -224,6 +260,8 @@ export class customFilter extends Plugin {
                             this._soft = false;
                             this._treblebass = false;
                             this._karaoke = false;
+                            this._vibrato = false;
+                            this._tremolo = false;
                             this.node.send(this._eightDData);
                         } else this._resetnode();
                     }
@@ -237,9 +275,43 @@ export class customFilter extends Plugin {
                             this._pop = false;
                             this._soft = false;
                             this._treblebass = false;
-                            this._EightD = false;
+                            this._eightD = false;
+                            this._vibrato = false;
+                            this._tremolo = false;
                             this.node.send(this._karaokeData)
-                        }else this._resetnode();
+                        } else this._resetnode();
+                    }
+
+                    set vibrato(status:boolean){
+                        this._vibrato = status;
+                        if(status){
+                            this._nightcore = false;
+                            this._vaporwave = false;
+                            this._bassboost = false;
+                            this._pop = false;
+                            this._soft = false;
+                            this._treblebass = false;
+                            this._eightD = false;
+                            this._karaoke = false;
+                            this._tremolo = false;
+                            this.node.send(this._vibratoData)
+                        } else this._resetnode();
+                    }
+
+                    set tremolo(status:boolean){
+                        this._tremolo = status;
+                        if(status){
+                            this._nightcore = false;
+                            this._vaporwave = false;
+                            this._bassboost = false;
+                            this._pop = false;
+                            this._soft = false;
+                            this._treblebass = false;
+                            this._eightD = false;
+                            this._karaoke = false;
+                            this._vibrato = false;
+                            this.node.send(this._tremoloData)
+                        } else this._resetnode();
                     }
 
                     //Get Filter Status
@@ -264,7 +336,7 @@ export class customFilter extends Plugin {
                     }
 
                     get treblebass(){
-                        return this.treblebass;
+                        return this._treblebass;
                     }
 
                     get eightD(){
@@ -273,6 +345,14 @@ export class customFilter extends Plugin {
 
                     get karaoke(){
                         return this._karaoke;
+                    }
+
+                    get vibrato(){
+                        return this._vibrato;
+                    }
+
+                    get tremolo(){
+                        return this._tremolo;
                     }
 
                     //Reset Everything
@@ -290,6 +370,8 @@ export class customFilter extends Plugin {
                         this._treblebass = false;
                         this._eightD = false;
                         this._karaoke = false;
+                        this._vibrato = false;
+                        this._tremolo = false;
                     }
                 }
         );
