@@ -1,12 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.customFilter = void 0;
+
 const erela_js_1 = require("erela.js");
+
 class customFilter extends erela_js_1.Plugin {
     load() {
         erela_js_1.Structure.extend("Player", (Player) => class extends Player {
             constructor() {
                 super(...arguments);
+
                 //Private Filter Boolean
                 this._nightcore = false;
                 this._vaporwave = false;
@@ -16,6 +19,9 @@ class customFilter extends erela_js_1.Plugin {
                 this._treblebass = false;
                 this._eightD = false;
                 this._karaoke = false;
+                this._vibrato = false;
+                this._tremolo = false;
+
                 //Private Filter Data
                 this._resetData = {
                     op: "filters",
@@ -124,6 +130,22 @@ class customFilter extends erela_js_1.Plugin {
                         filterWidth: 100.0
                     },
                 };
+                this._vibratoData = {
+                    op: "filters",
+                    guildId: this.guild,
+                    vibrato: {
+                        frequency: 10,
+                        depth: 0.9
+                    }
+                };
+                this._tremoloData = {
+                    op: "filters",
+                    guildId: this.guild,
+                    tremolo: {
+                        frequency: 10,
+                        depth: 0.5
+                    }
+                };
             }
             //Setting the filter
             set nightcore(status) {
@@ -136,6 +158,8 @@ class customFilter extends erela_js_1.Plugin {
                     this._treblebass = false;
                     this._eightD = false;
                     this._karaoke = false;
+                    this._vibrato = false;
+                    this._tremolo = false;
                     this.node.send(this._nightcoreData);
                 }
                 else
@@ -151,6 +175,8 @@ class customFilter extends erela_js_1.Plugin {
                     this._treblebass = false;
                     this._eightD = false;
                     this._karaoke = false;
+                    this._vibrato = false;
+                    this._tremolo = false;
                     this.node.send(this._vaporwaveData);
                 }
                 else
@@ -166,6 +192,8 @@ class customFilter extends erela_js_1.Plugin {
                     this._treblebass = false;
                     this._eightD = false;
                     this._karaoke = false;
+                    this._vibrato = false;
+                    this._tremolo = false;
                     this.node.send(this._bassboostData);
                 }
                 else
@@ -181,6 +209,8 @@ class customFilter extends erela_js_1.Plugin {
                     this._treblebass = false;
                     this._eightD = false;
                     this._karaoke = false;
+                    this._vibrato = false;
+                    this._tremolo = false;
                     this.node.send(this._popData);
                 }
                 else
@@ -196,6 +226,8 @@ class customFilter extends erela_js_1.Plugin {
                     this._treblebass = false;
                     this._eightD = false;
                     this._karaoke = false;
+                    this._vibrato = false;
+                    this._tremolo = false;
                     this.node.send(this._softData);
                 }
                 else
@@ -211,6 +243,8 @@ class customFilter extends erela_js_1.Plugin {
                     this._soft = false;
                     this._eightD = false;
                     this._karaoke = false;
+                    this._vibrato = false;
+                    this._tremolo = false;
                     this.node.send(this._treblebassData);
                 }
                 else
@@ -226,6 +260,8 @@ class customFilter extends erela_js_1.Plugin {
                     this._soft = false;
                     this._treblebass = false;
                     this._karaoke = false;
+                    this._vibrato = false;
+                    this._tremolo = false;
                     this.node.send(this._eightDData);
                 }
                 else
@@ -240,12 +276,49 @@ class customFilter extends erela_js_1.Plugin {
                     this._pop = false;
                     this._soft = false;
                     this._treblebass = false;
-                    this._EightD = false;
+                    this._eightD = false;
+                    this._vibrato = false;
+                    this._tremolo = false;
                     this.node.send(this._karaokeData);
                 }
                 else
                     this._resetnode();
             }
+            set vibrato(status) {
+                this._vibrato = status;
+                if (status) {
+                    this._nightcore = false;
+                    this._vaporwave = false;
+                    this._bassboost = false;
+                    this._pop = false;
+                    this._soft = false;
+                    this._treblebass = false;
+                    this._eightD = false;
+                    this._karaoke = false;
+                    this._tremolo = false;
+                    this.node.send(this._vibratoData);
+                }
+                else
+                    this._resetnode();
+            }
+            set tremolo(status) {
+                this._tremolo = status;
+                if (status) {
+                    this._nightcore = false;
+                    this._vaporwave = false;
+                    this._bassboost = false;
+                    this._pop = false;
+                    this._soft = false;
+                    this._treblebass = false;
+                    this._eightD = false;
+                    this._karaoke = false;
+                    this._vibrato = false;
+                    this.node.send(this._tremoloData);
+                }
+                else
+                    this._resetnode();
+            }
+
             //Get Filter Status
             get nightcore() {
                 return this._nightcore;
@@ -263,7 +336,7 @@ class customFilter extends erela_js_1.Plugin {
                 return this._soft;
             }
             get treblebass() {
-                return this.treblebass;
+                return this._treblebass;
             }
             get eightD() {
                 return this._eightD;
@@ -271,10 +344,18 @@ class customFilter extends erela_js_1.Plugin {
             get karaoke() {
                 return this._karaoke;
             }
+            get vibrato() {
+                return this._vibrato;
+            }
+            get tremolo() {
+                return this._tremolo;
+            }
+
             //Reset Everything
             _resetnode() {
                 this.node.send(this._resetData);
             }
+
             reset() {
                 this._resetnode();
                 this._nightcore = false;
@@ -285,6 +366,8 @@ class customFilter extends erela_js_1.Plugin {
                 this._treblebass = false;
                 this._eightD = false;
                 this._karaoke = false;
+                this._vibrato = false;
+                this._tremolo = false;
             }
         });
     }
