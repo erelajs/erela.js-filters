@@ -1,15 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.customFilter = void 0;
-
 const erela_js_1 = require("erela.js");
-
 class customFilter extends erela_js_1.Plugin {
     load() {
         erela_js_1.Structure.extend("Player", (Player) => class extends Player {
             constructor() {
                 super(...arguments);
-
                 //Private Filter Boolean
                 this._nightcore = false;
                 this._vaporwave = false;
@@ -21,7 +18,6 @@ class customFilter extends erela_js_1.Plugin {
                 this._karaoke = false;
                 this._vibrato = false;
                 this._tremolo = false;
-
                 //Private Filter Data
                 this._resetData = {
                     op: "filters",
@@ -318,7 +314,6 @@ class customFilter extends erela_js_1.Plugin {
                 else
                     this._resetnode();
             }
-
             //Get Filter Status
             get nightcore() {
                 return this._nightcore;
@@ -350,12 +345,10 @@ class customFilter extends erela_js_1.Plugin {
             get tremolo() {
                 return this._tremolo;
             }
-
             //Reset Everything
             _resetnode() {
                 this.node.send(this._resetData);
             }
-
             reset() {
                 this._resetnode();
                 this._nightcore = false;
