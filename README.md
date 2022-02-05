@@ -1,10 +1,10 @@
 
 <div align="center">
     <p>
-    <a href="https://menhera-chan.in/support"><img src="https://img.shields.io/discord/735899211677041099?color=5865F2&logo=discord&logoColor=white" alt="Discord server" /></a>
+    <a href="https://discord.gg/menudocs"><img src="https://img.shields.io/discord/416512197590777857?color=5865F2&logo=discord&logoColor=white" alt="Discord server" /></a>
     <a href="https://www.npmjs.com/package/erela.js-filters"><img src="https://img.shields.io/npm/v/erela.js-filters.svg?maxAge=3600" alt="NPM version" /></a>
     <a href="https://www.npmjs.com/package/erela.js-filters"><img src="https://img.shields.io/npm/dt/erela.js-filters.svg?maxAge=3600" alt="NPM downloads" /></a>
-    <a href="https://www.patreon.com/rohank05"><img src="https://img.shields.io/badge/donate-patreon-F96854.svg" alt="Patreon" /></a>
+    
     </p>
 </div>
 
@@ -12,9 +12,9 @@
 
 It is recommended to read the documentation to start, and the guides to use the plugin.
 
-- [Documentation](https://solaris.codes/projects/erelajs/docs/gettingstarted.html 'Erela.js Documentation')
+- [Documentation](https://erelajs-docs.netlify.app/docs/gettingstarted.html 'Erela.js Documentation')
 
-- [Guides](http://projects.solaris.codes/erelajs/guides/introduction.html 'Erela.js Guides')
+- [Guides](https://guides.menudocs.org/topics/erelajs/ 'Erela.js Guides')
 
 ## Installation
 
@@ -30,13 +30,13 @@ yarn add erela.js-filters
 
 **Repository**:
 ```sh
-https://github.com/OpenianDevelopment/erela.js-filters
+https://github.com/Strandxo/erela.js-filters
 ```
 
 ##Important
->This is used to be Dev Release of Lavalink version.
+>Filter system is now part of main branch of Lavalink.
 
-[Download Lavalink](https://ci.fredboat.com/repository/download/Lavalink_Build/8867:id/Lavalink.jar)
+[Download Lavalink](https://github.com/freyacodes/Lavalink/releases)
 ## Filters
 
 - ### Nightcore
@@ -83,6 +83,10 @@ https://github.com/OpenianDevelopment/erela.js-filters
 > Reset the filter
 > **Example:** player.reset();
 
+- ### Custom Filter
+> Add custom filter
+> **Example:** player.customFilter(filter);
+
 ## Example Usage
 
 ```javascript
@@ -106,5 +110,8 @@ const manager = new Manager({
     <Player>.nightcore = false;
 ```
 
-## Support Server: [Join Here](https://menhera-chan.in/support)<br>
-## Developer: Rohan Kumar - [Github](https://github.com/rohank05)
+## Support Server: [Join Here](https://discord.gg/menudocs)<br>
+## Developer: 
+Rohan Kumar - [Github](https://github.com/rohank05)
+
+

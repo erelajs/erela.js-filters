@@ -1,4 +1,4 @@
-import {Structure, Plugin} from "erela.js";
+import {Structure, Plugin, EqualizerBand} from "erela.js";
 
 export class customFilter extends Plugin {
     public load() {
@@ -236,7 +236,7 @@ export class customFilter extends Plugin {
 
                     set treblebass(status: boolean) {
                         this._treblebass = status;
-                        if(status){
+                        if (status) {
                             this._nightcore = false;
                             this._vaporwave = false;
                             this._bassboost = false;
@@ -250,9 +250,9 @@ export class customFilter extends Plugin {
                         } else this._resetnode();
                     }
 
-                    set eightD(status:boolean){
+                    set eightD(status: boolean) {
                         this._eightD = status;
-                        if(status){
+                        if (status) {
                             this._nightcore = false;
                             this._vaporwave = false;
                             this._bassboost = false;
@@ -266,9 +266,9 @@ export class customFilter extends Plugin {
                         } else this._resetnode();
                     }
 
-                    set karaoke(status:boolean){
+                    set karaoke(status: boolean) {
                         this._karaoke = status;
-                        if(status){
+                        if (status) {
                             this._nightcore = false;
                             this._vaporwave = false;
                             this._bassboost = false;
@@ -282,9 +282,9 @@ export class customFilter extends Plugin {
                         } else this._resetnode();
                     }
 
-                    set vibrato(status:boolean){
+                    set vibrato(status: boolean) {
                         this._vibrato = status;
-                        if(status){
+                        if (status) {
                             this._nightcore = false;
                             this._vaporwave = false;
                             this._bassboost = false;
@@ -298,9 +298,9 @@ export class customFilter extends Plugin {
                         } else this._resetnode();
                     }
 
-                    set tremolo(status:boolean){
+                    set tremolo(status: boolean) {
                         this._tremolo = status;
-                        if(status){
+                        if (status) {
                             this._nightcore = false;
                             this._vaporwave = false;
                             this._bassboost = false;
@@ -327,31 +327,31 @@ export class customFilter extends Plugin {
                         return this._bassboost;
                     }
 
-                    get pop(){
+                    get pop() {
                         return this._pop;
                     }
 
-                    get soft(){
+                    get soft() {
                         return this._soft;
                     }
 
-                    get treblebass(){
+                    get treblebass() {
                         return this._treblebass;
                     }
 
-                    get eightD(){
+                    get eightD() {
                         return this._eightD;
                     }
 
-                    get karaoke(){
+                    get karaoke() {
                         return this._karaoke;
                     }
 
-                    get vibrato(){
+                    get vibrato() {
                         return this._vibrato;
                     }
 
-                    get tremolo(){
+                    get tremolo() {
                         return this._tremolo;
                     }
 
@@ -373,7 +373,62 @@ export class customFilter extends Plugin {
                         this._vibrato = false;
                         this._tremolo = false;
                     }
+
+                    // Add custom filters
+                    public customFilter(filter: filter) {
+                        this.reset();
+                        this.node.send(filter);
+                    }
                 }
         );
     }
 }
+
+interface filter {
+    op: "Filter",
+    guild: string,
+    equalizer?: Array<EqualizerBand>,
+    karaoke?: {
+        level?: number,
+        monoLevel?: number,
+        filterBand?: number,
+        filterWidth?: number
+    },
+    timescale?: {
+        speed?: number, // 0 ≤ x
+        pitch?: number, // 0 ≤ x
+        rate?: number   // 0 ≤ x
+    },
+    tremolo?: {
+        frequency?: number, // 0 < x
+        depth?: number      // 0 < x ≤ 1
+    },
+    vibrato?: {
+        frequency?: number, // 0 < x ≤ 14
+        depth?: number      // 0 < x ≤ 1
+    },
+    rotation?: {
+        rotationHz?: number // The frequency of the audio rotating around the listener in Hz. 0.2 is similar to the example video above.
+    },
+    distortion?: {
+        sinOffset?: number,
+        sinScale?: number,
+        cosOffset?: number,
+        cosScale?: number,
+        tanOffset?: number,
+        tanScale?: number,
+        offset?: number,
+        scale?: number
+    },
+    channelMix?: {
+        leftToLeft?: number,
+        leftToRight?: number,
+        rightToLeft?: number,
+        rightToRight?: number,
+    },
+    lowPass?: {
+        smoothing?: number
+    }
+}
+
+
