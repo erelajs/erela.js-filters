@@ -12,9 +12,9 @@
 
 It is recommended to read the documentation to start, and the guides to use the plugin.
 
-- [Documentation](https://solaris.codes/projects/erelajs/docs/gettingstarted.html 'Erela.js Documentation')
+- [Documentation](https://erelajs-docs.netlify.app/docs/gettingstarted.html 'Erela.js Documentation')
 
-- [Guides](http://projects.solaris.codes/erelajs/guides/introduction.html 'Erela.js Guides')
+- [Guides](https://erelajs-docs.netlify.app/guides/introduction.html 'Erela.js Guides')
 
 ## Installation
 
